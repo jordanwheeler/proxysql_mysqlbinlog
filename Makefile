@@ -45,7 +45,7 @@ binaries/proxysql_binlog_reader-ubuntu16:
 	docker rm ubuntu16_build || true
 	docker create --name ubuntu16_build renecannao/proxysql:build-ubuntu16 bash -c "while : ; do sleep 10 ; done"
 	docker start ubuntu16_build
-	docker exec ubuntu16_build bash -c "cd /opt; git clone https://github.com/sysown/proxysql_mysqlbinlog.git && cd /opt/proxysql_mysqlbinlog/libslave/ && cmake . && make && cd /opt/proxysql_mysqlbinlog && make"
+	docker exec ubuntu16_build bash -c "cd /opt; git clone https://github.com/jordanwheeler/proxysql_mysqlbinlog.git && cd /opt/proxysql_mysqlbinlog/libslave/ && cmake . && make && cd /opt/proxysql_mysqlbinlog && make"
 	sleep 2
 	docker cp ubuntu16_build:/opt/proxysql_mysqlbinlog/proxysql_binlog_reader ./binaries/proxysql_binlog_reader-ubuntu16
 

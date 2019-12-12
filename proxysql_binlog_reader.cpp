@@ -216,7 +216,7 @@ bool daemonize_phase3() {
 		}
 	} else {
 		parent_open_error_log();
-		fprintf(stderr,"ProxySQL crashed. Restarting!\n");
+		fprintf(stderr,"ProxySQL crashed with code %d. Restarting!\n", status);
 		parent_close_error_log();
 		return false;
 	}
